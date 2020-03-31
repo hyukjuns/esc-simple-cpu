@@ -1,0 +1,9 @@
+MO map_ram NULL ipcore_dir/map_ram.v vlg31/map__ram.bin 1498054153
+MO cpu NULL cpu.v vlg50/cpu.bin 1498054153
+MO vga NULL vga_char_rom_map_vm_if.v vlg6A/vga.bin 1498054153
+MO top NULL top.v vlg6F/top.bin 1498054153
+MO register_file NULL register_file.v vlg7C/register__file.bin 1498054153
+MO myrom NULL ipcore_dir/myrom.v vlg6C/myrom.bin 1498054153
+MO char_rom NULL ipcore_dir/char_rom.v vlg13/char__rom.bin 1498054153
+MO ps2_rx_code_filter NULL ps2_rx_code_filter.v vlg3D/ps2__rx__code__filter.bin 1498054153
+MO alu NULL alu.v vlg0A/alu.bin 1498054153

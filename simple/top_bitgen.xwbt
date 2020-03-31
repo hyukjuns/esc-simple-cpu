@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\Admin\simple\top.ncd
+OUTFILE=C:\Users\Admin\simple\top.bit
+FAMILY=Spartan3A and Spartan3AN
+PART=xc3s700an-4fgg484
+WORKINGDIR=C:\Users\Admin\simple
+LICENSE=WebPack
+USER_INFO=211149427_0_0_931

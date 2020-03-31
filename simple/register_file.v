@@ -1,0 +1,121 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date:    15:42:18 06/13/2017 
+// Design Name: 
+// Module Name:    register_file 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
+module register_file(a, b, E, pc, mem_addr, mem_we_d, mem_we_v, gpo, clock, reset, alu_out, E_out, opcode, raddr1, raddr2, waddr, gpi, gpi_we, douta_mem_d);
+
+	input			clock;
+	input			reset;
+	input	[7:0]	alu_out;
+	input			E_out;
+	input	[3:0]	opcode, raddr1, raddr2, waddr;
+	input 	[7:0]	gpi, douta_mem_d;
+	input 			gpi_we;
+	output	[7:0]	a, b;
+	output			E;
+	output 	[7:0]	pc, gpo;
+	output	[15:0]	mem_addr;
+	output			mem_we_d, mem_we_v;
+
+	reg		[7:0]	reg_file	[0:15];
+	reg				E;
+	reg				F;
+	reg				half_clock;
+
+	reg		[7:0]	wdata;
+	wire 			condition;
+
+	always@(posedge clock)
+		if(reset) 	half_clock <= 1'b0;
+		else 		half_clock <= half_clock + 1;
+
+	always@(posedge clock)
+		if(reset)
+			begin
+				reg_file[0] <= 8'h00;
+				reg_file[1] <= 8'h00;
+				reg_file[2] <= 8'h00;
+				reg_file[3] <= 8'h00;
+				reg_file[4] <= 8'h00;
+				reg_file[5] <= 8'h00;
+				reg_file[6] <= 8'h00;
+				reg_file[7] <= 8'h00;
+				reg_file[8] <= 8'h00;
+				reg_file[9] <= 8'h00;
+				reg_file[10] <= 8'h00;
+				reg_file[11] <= 8'h00;
+				reg_file[12] <= 8'h00;
+				reg_file[13] <= 8'h00;
+				reg_file[14] <= 8'h00;
+				reg_file[15] <= 8'h00;
+			end
+		else 
+			begin
+				if(gpi_we) reg_file[11] <= gpi;	//keyboard i/f
+				if(half_clock)
+					begin
+						if(waddr == 4'hf)//for unconditional jump
+							reg_file[15] <= wdata;
+						else if(condition)//for conditional jump
+							reg_file[15] <= reg_file[15] + 2;
+						else 
+							reg_file[15] <= reg_file[15] + 1;
+						if((opcode!=4'b1110)&&(opcode!=4'b1111)&&(waddr!=4'hf)&&(waddr!=4'hb)) 
+							reg_file[waddr] <= wdata;
+					end
+			end
+
+	always@(*)
+	begin
+		wdata = alu_out;
+		case(opcode)
+			4'b1100: wdata = {raddr1, raddr2};	//LDI* (loading immediate value)
+			4'b1101: wdata = douta_mem_d;		//MRD (data memory read)
+		endcase
+	end
+
+	assign mem_we_v = ((opcode==4'b1110)&&(raddr1==4'b0010)&&half_clock)? 1'b1: 1'b0;//MWV (video memory write)
+	assign mem_we_d = ((opcode==4'b1110)&&(raddr1==4'b0001)&&half_clock)? 1'b1: 1'b0;//MWD (data memory write)
+
+	assign a = reg_file[raddr1];//used for memory write as well
+	assign b = reg_file[raddr2];
+
+	always@(posedge clock)
+		if(reset)
+			E <= 1'b0;
+		else if((opcode==4'b1110)&&(raddr1==4'b0100)&&half_clock)//CLE*
+			E <= 1'b0;
+		else if(half_clock)
+			E <= E_out;
+
+	always@(posedge clock)
+		if(reset)
+			F <= 1'b0;
+		else if(gpi_we)
+			F <= 1'b1;
+		else if((opcode==4'b1110)&&(raddr1==4'b1000)&&half_clock)//CLF*
+			F <= 1'b0;
+
+	assign	condition = ((opcode==4'b1111)&&(((waddr==4'b0001)&&(a==b))||((waddr==4'b0010)&&F)||((waddr==4'b0100)&&E)))? 1'b1: 1'b0;//JEQ, JFS, JES
+
+	assign gpo = reg_file[12];
+	assign mem_addr = {reg_file[13], reg_file[14]};
+	assign pc = reg_file[15];
+
+endmodule

@@ -1,0 +1,73 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date:    15:39:29 06/13/2017 
+// Design Name: 
+// Module Name:    top 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
+module top(RESET, CLK_50M, PS2D, PS2C, GPO, VGA_R, VGA_G, VGA_B, VGA_HSYNC, VGA_VSYNC); 
+
+	input 			CLK_50M;
+	input			RESET;
+	input 			PS2D, PS2C;
+	output [7:0] 	GPO;
+	output [3:0] 	VGA_R;
+	output [3:0] 	VGA_G;
+	output [3:0] 	VGA_B;
+	output 			VGA_HSYNC;
+	output 			VGA_VSYNC;
+
+	wire			gpi_we;
+	wire	[7:0]	gpi;
+	wire	[15:0]	mem_addr;
+	wire			mem_we_v;
+	wire	[7:0]	b;
+
+ps2_rx_code_filter ps2_rx_code_filter(
+				.clk(CLK_50M),
+				.reset(RESET),
+				.ps2d(PS2D),
+				.ps2c(PS2C),
+				.got_code_tick(gpi_we),
+    			.dout(gpi)
+		);
+
+cpu cpu(
+			.mem_addr(mem_addr),
+		   	.mem_we_d(),
+			.mem_we_v(mem_we_v),
+			.gpo(GPO),
+			.b(b),
+			.clock(CLK_50M),
+		   	.reset(RESET),
+			.gpi(gpi),
+			.gpi_we(gpi_we),
+			.douta_mem_d(8'hff)
+		);
+
+vga vga(
+			.CLK_50M(CLK_50M),
+			.VGA_R(VGA_R),
+			.VGA_G(VGA_G),
+			.VGA_B(VGA_B),
+			.VGA_HSYNC(VGA_HSYNC),
+			.VGA_VSYNC(VGA_VSYNC),
+			.mem_addr(mem_addr[12:0]),
+			.mem_we_v(mem_we_v),
+			.b(b)
+		);
+
+endmodule

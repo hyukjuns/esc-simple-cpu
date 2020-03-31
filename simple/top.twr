@@ -1,0 +1,739 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 4
+-n 3 -fastpaths -xml top.twx top.ncd -o top.twr top.pcf -ucf top.ucf
+
+Design file:              top.ncd
+Physical constraint file: top.pcf
+Device,package,speed:     xc3s700an,fgg484,-4 (PRODUCTION 1.42 2013-10-13)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter 
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock 
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and 
+   'Phase Error' calculations, these terms will be zero in the Clock 
+   Uncertainty calculation.  Please make appropriate modification to 
+   SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
+   Error.
+
+================================================================================
+Timing constraint: NET "CLK_50M_BUFGP/IBUFG" PERIOD = 20 ns HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 216886 paths analyzed, 474 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is  15.973ns.
+--------------------------------------------------------------------------------
+
+Paths for end point cpu/register_file/reg_file_3_7 (SLICE_X52Y24.BX), 2788 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     4.027ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram (RAM)
+  Destination:          cpu/register_file/reg_file_3_7 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      15.929ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.044ns (0.218 - 0.262)
+  Source Clock:         CLK_50M_BUFGP rising at 0.000ns
+  Destination Clock:    CLK_50M_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram to cpu/register_file/reg_file_3_7
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB16_X1Y4.DOB1     Trcko_DOWB            2.427   cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram
+                                                       cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram
+    SLICE_X58Y53.BX      net (fanout=38)       2.425   cpu/raddr1<1>
+    SLICE_X58Y53.F5      Tbxf5                 0.640   cpu/a<1>
+                                                       cpu/register_file/mux1_5_f5
+    SLICE_X58Y52.FXINB   net (fanout=1)        0.000   cpu/register_file/mux1_5_f5
+    SLICE_X58Y52.FX      Tinbfx                0.285   cpu/register_file/mux1_4_f5
+                                                       cpu/register_file/mux1_3_f6
+    SLICE_X58Y53.FXINA   net (fanout=1)        0.000   cpu/register_file/mux1_3_f6
+    SLICE_X58Y53.Y       Tif6y                 0.410   cpu/a<1>
+                                                       cpu/register_file/mux1_2_f7
+    SLICE_X51Y41.G1      net (fanout=11)       1.734   cpu/a<1>
+    SLICE_X51Y41.COUT    Topcyg                1.178   cpu/alu/alu_out_addsub0000<0>
+                                                       cpu/alu/Madd_alu_out_addsub0000_lut<1>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<1>
+    SLICE_X51Y42.CIN     net (fanout=1)        0.000   cpu/alu/Madd_alu_out_addsub0000_cy<1>
+    SLICE_X51Y42.COUT    Tbyp                  0.130   cpu/alu/alu_out_addsub0000<2>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<2>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<3>
+    SLICE_X51Y43.CIN     net (fanout=1)        0.000   cpu/alu/Madd_alu_out_addsub0000_cy<3>
+    SLICE_X51Y43.COUT    Tbyp                  0.130   cpu/alu/alu_out_addsub0000<4>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<4>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<5>
+    SLICE_X51Y44.CIN     net (fanout=1)        0.000   cpu/alu/Madd_alu_out_addsub0000_cy<5>
+    SLICE_X51Y44.Y       Tciny                 0.864   cpu/alu/alu_out_addsub0000<6>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<6>
+                                                       cpu/alu/Madd_alu_out_addsub0000_xor<7>
+    SLICE_X53Y39.G3      net (fanout=2)        0.667   cpu/alu/alu_out_addsub0000<7>
+    SLICE_X53Y39.F5      Tif5                  0.773   cpu/alu/Mmux_alu_out_7_f57
+                                                       cpu/alu/Mmux_alu_out_97
+                                                       cpu/alu/Mmux_alu_out_7_f5_6
+    SLICE_X53Y38.FXINB   net (fanout=1)        0.000   cpu/alu/Mmux_alu_out_7_f57
+    SLICE_X53Y38.Y       Tif6y                 0.291   cpu/alu/Mmux_alu_out_5_f67
+                                                       cpu/alu/Mmux_alu_out_5_f6_6
+    SLICE_X54Y24.F2      net (fanout=1)        0.928   cpu/alu/Mmux_alu_out_5_f67
+    SLICE_X54Y24.X       Tilo                  0.692   cpu/register_file/reg_file_10_7
+                                                       cpu/register_file/wdata<7>19
+    SLICE_X52Y24.BX      net (fanout=14)       2.012   cpu/register_file/wdata<7>
+    SLICE_X52Y24.CLK     Tdick                 0.343   cpu/register_file/reg_file_3_7
+                                                       cpu/register_file/reg_file_3_7
+    -------------------------------------------------  ---------------------------
+    Total                                     15.929ns (8.163ns logic, 7.766ns route)
+                                                       (51.2% logic, 48.8% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     4.027ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram (RAM)
+  Destination:          cpu/register_file/reg_file_3_7 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      15.929ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.044ns (0.218 - 0.262)
+  Source Clock:         CLK_50M_BUFGP rising at 0.000ns
+  Destination Clock:    CLK_50M_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram to cpu/register_file/reg_file_3_7
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB16_X1Y4.DOB1     Trcko_DOWB            2.427   cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram
+                                                       cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram
+    SLICE_X58Y52.BX      net (fanout=38)       2.425   cpu/raddr1<1>
+    SLICE_X58Y52.F5      Tbxf5                 0.640   cpu/register_file/mux1_4_f5
+                                                       cpu/register_file/mux1_4_f5
+    SLICE_X58Y52.FXINA   net (fanout=1)        0.000   cpu/register_file/mux1_4_f5
+    SLICE_X58Y52.FX      Tinafx                0.285   cpu/register_file/mux1_4_f5
+                                                       cpu/register_file/mux1_3_f6
+    SLICE_X58Y53.FXINA   net (fanout=1)        0.000   cpu/register_file/mux1_3_f6
+    SLICE_X58Y53.Y       Tif6y                 0.410   cpu/a<1>
+                                                       cpu/register_file/mux1_2_f7
+    SLICE_X51Y41.G1      net (fanout=11)       1.734   cpu/a<1>
+    SLICE_X51Y41.COUT    Topcyg                1.178   cpu/alu/alu_out_addsub0000<0>
+                                                       cpu/alu/Madd_alu_out_addsub0000_lut<1>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<1>
+    SLICE_X51Y42.CIN     net (fanout=1)        0.000   cpu/alu/Madd_alu_out_addsub0000_cy<1>
+    SLICE_X51Y42.COUT    Tbyp                  0.130   cpu/alu/alu_out_addsub0000<2>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<2>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<3>
+    SLICE_X51Y43.CIN     net (fanout=1)        0.000   cpu/alu/Madd_alu_out_addsub0000_cy<3>
+    SLICE_X51Y43.COUT    Tbyp                  0.130   cpu/alu/alu_out_addsub0000<4>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<4>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<5>
+    SLICE_X51Y44.CIN     net (fanout=1)        0.000   cpu/alu/Madd_alu_out_addsub0000_cy<5>
+    SLICE_X51Y44.Y       Tciny                 0.864   cpu/alu/alu_out_addsub0000<6>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<6>
+                                                       cpu/alu/Madd_alu_out_addsub0000_xor<7>
+    SLICE_X53Y39.G3      net (fanout=2)        0.667   cpu/alu/alu_out_addsub0000<7>
+    SLICE_X53Y39.F5      Tif5                  0.773   cpu/alu/Mmux_alu_out_7_f57
+                                                       cpu/alu/Mmux_alu_out_97
+                                                       cpu/alu/Mmux_alu_out_7_f5_6
+    SLICE_X53Y38.FXINB   net (fanout=1)        0.000   cpu/alu/Mmux_alu_out_7_f57
+    SLICE_X53Y38.Y       Tif6y                 0.291   cpu/alu/Mmux_alu_out_5_f67
+                                                       cpu/alu/Mmux_alu_out_5_f6_6
+    SLICE_X54Y24.F2      net (fanout=1)        0.928   cpu/alu/Mmux_alu_out_5_f67
+    SLICE_X54Y24.X       Tilo                  0.692   cpu/register_file/reg_file_10_7
+                                                       cpu/register_file/wdata<7>19
+    SLICE_X52Y24.BX      net (fanout=14)       2.012   cpu/register_file/wdata<7>
+    SLICE_X52Y24.CLK     Tdick                 0.343   cpu/register_file/reg_file_3_7
+                                                       cpu/register_file/reg_file_3_7
+    -------------------------------------------------  ---------------------------
+    Total                                     15.929ns (8.163ns logic, 7.766ns route)
+                                                       (51.2% logic, 48.8% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     4.044ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram (RAM)
+  Destination:          cpu/register_file/reg_file_3_7 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      15.912ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.044ns (0.218 - 0.262)
+  Source Clock:         CLK_50M_BUFGP rising at 0.000ns
+  Destination Clock:    CLK_50M_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram to cpu/register_file/reg_file_3_7
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB16_X1Y4.DOA17    Trcko_DOWA            2.498   cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram
+                                                       cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram
+    SLICE_X57Y58.BX      net (fanout=36)       2.977   cpu/raddr2<1>
+    SLICE_X57Y58.F5      Tbxf5                 0.605   cpu/register_file/mux8_5_f51
+                                                       cpu/register_file/mux8_5_f5_0
+    SLICE_X57Y58.FXINA   net (fanout=1)        0.000   cpu/register_file/mux8_5_f51
+    SLICE_X57Y58.FX      Tinafx                0.254   cpu/register_file/mux8_5_f51
+                                                       cpu/register_file/mux8_4_f6
+    SLICE_X56Y59.FXINB   net (fanout=1)        0.000   cpu/register_file/mux8_4_f6
+    SLICE_X56Y59.Y       Tif6y                 0.410   b<0>
+                                                       cpu/register_file/mux8_2_f7
+    SLICE_X53Y41.F2      net (fanout=8)        1.107   b<0>
+    SLICE_X53Y41.COUT    Topcyf                1.195   cpu/alu/_AUX_5<0>
+                                                       cpu/alu/Msub__AUX_5_lut<0>
+                                                       cpu/alu/Msub__AUX_5_cy<0>
+                                                       cpu/alu/Msub__AUX_5_cy<1>
+    SLICE_X53Y42.CIN     net (fanout=1)        0.000   cpu/alu/Msub__AUX_5_cy<1>
+    SLICE_X53Y42.COUT    Tbyp                  0.130   cpu/alu/_AUX_5<2>
+                                                       cpu/alu/Msub__AUX_5_cy<2>
+                                                       cpu/alu/Msub__AUX_5_cy<3>
+    SLICE_X53Y43.CIN     net (fanout=1)        0.000   cpu/alu/Msub__AUX_5_cy<3>
+    SLICE_X53Y43.COUT    Tbyp                  0.130   cpu/alu/_AUX_5<4>
+                                                       cpu/alu/Msub__AUX_5_cy<4>
+                                                       cpu/alu/Msub__AUX_5_cy<5>
+    SLICE_X53Y44.CIN     net (fanout=1)        0.000   cpu/alu/Msub__AUX_5_cy<5>
+    SLICE_X53Y44.Y       Tciny                 0.864   cpu/alu/_AUX_5<6>
+                                                       cpu/alu/Msub__AUX_5_cy<6>
+                                                       cpu/alu/Msub__AUX_5_xor<7>
+    SLICE_X53Y38.G1      net (fanout=1)        0.703   cpu/alu/_AUX_5<7>
+    SLICE_X53Y38.F5      Tif5                  0.773   cpu/alu/Mmux_alu_out_5_f67
+                                                       cpu/alu/Mmux_alu_out_821
+                                                       cpu/alu/Mmux_alu_out_6_f5_13
+    SLICE_X53Y38.FXINA   net (fanout=1)        0.000   cpu/alu/Mmux_alu_out_6_f514
+    SLICE_X53Y38.Y       Tif6y                 0.291   cpu/alu/Mmux_alu_out_5_f67
+                                                       cpu/alu/Mmux_alu_out_5_f6_6
+    SLICE_X54Y24.F2      net (fanout=1)        0.928   cpu/alu/Mmux_alu_out_5_f67
+    SLICE_X54Y24.X       Tilo                  0.692   cpu/register_file/reg_file_10_7
+                                                       cpu/register_file/wdata<7>19
+    SLICE_X52Y24.BX      net (fanout=14)       2.012   cpu/register_file/wdata<7>
+    SLICE_X52Y24.CLK     Tdick                 0.343   cpu/register_file/reg_file_3_7
+                                                       cpu/register_file/reg_file_3_7
+    -------------------------------------------------  ---------------------------
+    Total                                     15.912ns (8.185ns logic, 7.727ns route)
+                                                       (51.4% logic, 48.6% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point cpu/register_file/reg_file_9_7 (SLICE_X52Y25.BX), 2788 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     4.027ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram (RAM)
+  Destination:          cpu/register_file/reg_file_9_7 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      15.929ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.044ns (0.218 - 0.262)
+  Source Clock:         CLK_50M_BUFGP rising at 0.000ns
+  Destination Clock:    CLK_50M_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram to cpu/register_file/reg_file_9_7
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB16_X1Y4.DOB1     Trcko_DOWB            2.427   cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram
+                                                       cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram
+    SLICE_X58Y53.BX      net (fanout=38)       2.425   cpu/raddr1<1>
+    SLICE_X58Y53.F5      Tbxf5                 0.640   cpu/a<1>
+                                                       cpu/register_file/mux1_5_f5
+    SLICE_X58Y52.FXINB   net (fanout=1)        0.000   cpu/register_file/mux1_5_f5
+    SLICE_X58Y52.FX      Tinbfx                0.285   cpu/register_file/mux1_4_f5
+                                                       cpu/register_file/mux1_3_f6
+    SLICE_X58Y53.FXINA   net (fanout=1)        0.000   cpu/register_file/mux1_3_f6
+    SLICE_X58Y53.Y       Tif6y                 0.410   cpu/a<1>
+                                                       cpu/register_file/mux1_2_f7
+    SLICE_X51Y41.G1      net (fanout=11)       1.734   cpu/a<1>
+    SLICE_X51Y41.COUT    Topcyg                1.178   cpu/alu/alu_out_addsub0000<0>
+                                                       cpu/alu/Madd_alu_out_addsub0000_lut<1>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<1>
+    SLICE_X51Y42.CIN     net (fanout=1)        0.000   cpu/alu/Madd_alu_out_addsub0000_cy<1>
+    SLICE_X51Y42.COUT    Tbyp                  0.130   cpu/alu/alu_out_addsub0000<2>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<2>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<3>
+    SLICE_X51Y43.CIN     net (fanout=1)        0.000   cpu/alu/Madd_alu_out_addsub0000_cy<3>
+    SLICE_X51Y43.COUT    Tbyp                  0.130   cpu/alu/alu_out_addsub0000<4>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<4>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<5>
+    SLICE_X51Y44.CIN     net (fanout=1)        0.000   cpu/alu/Madd_alu_out_addsub0000_cy<5>
+    SLICE_X51Y44.Y       Tciny                 0.864   cpu/alu/alu_out_addsub0000<6>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<6>
+                                                       cpu/alu/Madd_alu_out_addsub0000_xor<7>
+    SLICE_X53Y39.G3      net (fanout=2)        0.667   cpu/alu/alu_out_addsub0000<7>
+    SLICE_X53Y39.F5      Tif5                  0.773   cpu/alu/Mmux_alu_out_7_f57
+                                                       cpu/alu/Mmux_alu_out_97
+                                                       cpu/alu/Mmux_alu_out_7_f5_6
+    SLICE_X53Y38.FXINB   net (fanout=1)        0.000   cpu/alu/Mmux_alu_out_7_f57
+    SLICE_X53Y38.Y       Tif6y                 0.291   cpu/alu/Mmux_alu_out_5_f67
+                                                       cpu/alu/Mmux_alu_out_5_f6_6
+    SLICE_X54Y24.F2      net (fanout=1)        0.928   cpu/alu/Mmux_alu_out_5_f67
+    SLICE_X54Y24.X       Tilo                  0.692   cpu/register_file/reg_file_10_7
+                                                       cpu/register_file/wdata<7>19
+    SLICE_X52Y25.BX      net (fanout=14)       2.012   cpu/register_file/wdata<7>
+    SLICE_X52Y25.CLK     Tdick                 0.343   cpu/register_file/reg_file_9_7
+                                                       cpu/register_file/reg_file_9_7
+    -------------------------------------------------  ---------------------------
+    Total                                     15.929ns (8.163ns logic, 7.766ns route)
+                                                       (51.2% logic, 48.8% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     4.027ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram (RAM)
+  Destination:          cpu/register_file/reg_file_9_7 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      15.929ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.044ns (0.218 - 0.262)
+  Source Clock:         CLK_50M_BUFGP rising at 0.000ns
+  Destination Clock:    CLK_50M_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram to cpu/register_file/reg_file_9_7
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB16_X1Y4.DOB1     Trcko_DOWB            2.427   cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram
+                                                       cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram
+    SLICE_X58Y52.BX      net (fanout=38)       2.425   cpu/raddr1<1>
+    SLICE_X58Y52.F5      Tbxf5                 0.640   cpu/register_file/mux1_4_f5
+                                                       cpu/register_file/mux1_4_f5
+    SLICE_X58Y52.FXINA   net (fanout=1)        0.000   cpu/register_file/mux1_4_f5
+    SLICE_X58Y52.FX      Tinafx                0.285   cpu/register_file/mux1_4_f5
+                                                       cpu/register_file/mux1_3_f6
+    SLICE_X58Y53.FXINA   net (fanout=1)        0.000   cpu/register_file/mux1_3_f6
+    SLICE_X58Y53.Y       Tif6y                 0.410   cpu/a<1>
+                                                       cpu/register_file/mux1_2_f7
+    SLICE_X51Y41.G1      net (fanout=11)       1.734   cpu/a<1>
+    SLICE_X51Y41.COUT    Topcyg                1.178   cpu/alu/alu_out_addsub0000<0>
+                                                       cpu/alu/Madd_alu_out_addsub0000_lut<1>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<1>
+    SLICE_X51Y42.CIN     net (fanout=1)        0.000   cpu/alu/Madd_alu_out_addsub0000_cy<1>
+    SLICE_X51Y42.COUT    Tbyp                  0.130   cpu/alu/alu_out_addsub0000<2>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<2>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<3>
+    SLICE_X51Y43.CIN     net (fanout=1)        0.000   cpu/alu/Madd_alu_out_addsub0000_cy<3>
+    SLICE_X51Y43.COUT    Tbyp                  0.130   cpu/alu/alu_out_addsub0000<4>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<4>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<5>
+    SLICE_X51Y44.CIN     net (fanout=1)        0.000   cpu/alu/Madd_alu_out_addsub0000_cy<5>
+    SLICE_X51Y44.Y       Tciny                 0.864   cpu/alu/alu_out_addsub0000<6>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<6>
+                                                       cpu/alu/Madd_alu_out_addsub0000_xor<7>
+    SLICE_X53Y39.G3      net (fanout=2)        0.667   cpu/alu/alu_out_addsub0000<7>
+    SLICE_X53Y39.F5      Tif5                  0.773   cpu/alu/Mmux_alu_out_7_f57
+                                                       cpu/alu/Mmux_alu_out_97
+                                                       cpu/alu/Mmux_alu_out_7_f5_6
+    SLICE_X53Y38.FXINB   net (fanout=1)        0.000   cpu/alu/Mmux_alu_out_7_f57
+    SLICE_X53Y38.Y       Tif6y                 0.291   cpu/alu/Mmux_alu_out_5_f67
+                                                       cpu/alu/Mmux_alu_out_5_f6_6
+    SLICE_X54Y24.F2      net (fanout=1)        0.928   cpu/alu/Mmux_alu_out_5_f67
+    SLICE_X54Y24.X       Tilo                  0.692   cpu/register_file/reg_file_10_7
+                                                       cpu/register_file/wdata<7>19
+    SLICE_X52Y25.BX      net (fanout=14)       2.012   cpu/register_file/wdata<7>
+    SLICE_X52Y25.CLK     Tdick                 0.343   cpu/register_file/reg_file_9_7
+                                                       cpu/register_file/reg_file_9_7
+    -------------------------------------------------  ---------------------------
+    Total                                     15.929ns (8.163ns logic, 7.766ns route)
+                                                       (51.2% logic, 48.8% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     4.044ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram (RAM)
+  Destination:          cpu/register_file/reg_file_9_7 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      15.912ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.044ns (0.218 - 0.262)
+  Source Clock:         CLK_50M_BUFGP rising at 0.000ns
+  Destination Clock:    CLK_50M_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram to cpu/register_file/reg_file_9_7
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB16_X1Y4.DOA17    Trcko_DOWA            2.498   cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram
+                                                       cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram
+    SLICE_X57Y58.BX      net (fanout=36)       2.977   cpu/raddr2<1>
+    SLICE_X57Y58.F5      Tbxf5                 0.605   cpu/register_file/mux8_5_f51
+                                                       cpu/register_file/mux8_5_f5_0
+    SLICE_X57Y58.FXINA   net (fanout=1)        0.000   cpu/register_file/mux8_5_f51
+    SLICE_X57Y58.FX      Tinafx                0.254   cpu/register_file/mux8_5_f51
+                                                       cpu/register_file/mux8_4_f6
+    SLICE_X56Y59.FXINB   net (fanout=1)        0.000   cpu/register_file/mux8_4_f6
+    SLICE_X56Y59.Y       Tif6y                 0.410   b<0>
+                                                       cpu/register_file/mux8_2_f7
+    SLICE_X53Y41.F2      net (fanout=8)        1.107   b<0>
+    SLICE_X53Y41.COUT    Topcyf                1.195   cpu/alu/_AUX_5<0>
+                                                       cpu/alu/Msub__AUX_5_lut<0>
+                                                       cpu/alu/Msub__AUX_5_cy<0>
+                                                       cpu/alu/Msub__AUX_5_cy<1>
+    SLICE_X53Y42.CIN     net (fanout=1)        0.000   cpu/alu/Msub__AUX_5_cy<1>
+    SLICE_X53Y42.COUT    Tbyp                  0.130   cpu/alu/_AUX_5<2>
+                                                       cpu/alu/Msub__AUX_5_cy<2>
+                                                       cpu/alu/Msub__AUX_5_cy<3>
+    SLICE_X53Y43.CIN     net (fanout=1)        0.000   cpu/alu/Msub__AUX_5_cy<3>
+    SLICE_X53Y43.COUT    Tbyp                  0.130   cpu/alu/_AUX_5<4>
+                                                       cpu/alu/Msub__AUX_5_cy<4>
+                                                       cpu/alu/Msub__AUX_5_cy<5>
+    SLICE_X53Y44.CIN     net (fanout=1)        0.000   cpu/alu/Msub__AUX_5_cy<5>
+    SLICE_X53Y44.Y       Tciny                 0.864   cpu/alu/_AUX_5<6>
+                                                       cpu/alu/Msub__AUX_5_cy<6>
+                                                       cpu/alu/Msub__AUX_5_xor<7>
+    SLICE_X53Y38.G1      net (fanout=1)        0.703   cpu/alu/_AUX_5<7>
+    SLICE_X53Y38.F5      Tif5                  0.773   cpu/alu/Mmux_alu_out_5_f67
+                                                       cpu/alu/Mmux_alu_out_821
+                                                       cpu/alu/Mmux_alu_out_6_f5_13
+    SLICE_X53Y38.FXINA   net (fanout=1)        0.000   cpu/alu/Mmux_alu_out_6_f514
+    SLICE_X53Y38.Y       Tif6y                 0.291   cpu/alu/Mmux_alu_out_5_f67
+                                                       cpu/alu/Mmux_alu_out_5_f6_6
+    SLICE_X54Y24.F2      net (fanout=1)        0.928   cpu/alu/Mmux_alu_out_5_f67
+    SLICE_X54Y24.X       Tilo                  0.692   cpu/register_file/reg_file_10_7
+                                                       cpu/register_file/wdata<7>19
+    SLICE_X52Y25.BX      net (fanout=14)       2.012   cpu/register_file/wdata<7>
+    SLICE_X52Y25.CLK     Tdick                 0.343   cpu/register_file/reg_file_9_7
+                                                       cpu/register_file/reg_file_9_7
+    -------------------------------------------------  ---------------------------
+    Total                                     15.912ns (8.185ns logic, 7.727ns route)
+                                                       (51.4% logic, 48.6% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point cpu/register_file/reg_file_5_7 (SLICE_X54Y25.BX), 2788 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     4.043ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram (RAM)
+  Destination:          cpu/register_file/reg_file_5_7 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      15.923ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.034ns (0.228 - 0.262)
+  Source Clock:         CLK_50M_BUFGP rising at 0.000ns
+  Destination Clock:    CLK_50M_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram to cpu/register_file/reg_file_5_7
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB16_X1Y4.DOB1     Trcko_DOWB            2.427   cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram
+                                                       cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram
+    SLICE_X58Y53.BX      net (fanout=38)       2.425   cpu/raddr1<1>
+    SLICE_X58Y53.F5      Tbxf5                 0.640   cpu/a<1>
+                                                       cpu/register_file/mux1_5_f5
+    SLICE_X58Y52.FXINB   net (fanout=1)        0.000   cpu/register_file/mux1_5_f5
+    SLICE_X58Y52.FX      Tinbfx                0.285   cpu/register_file/mux1_4_f5
+                                                       cpu/register_file/mux1_3_f6
+    SLICE_X58Y53.FXINA   net (fanout=1)        0.000   cpu/register_file/mux1_3_f6
+    SLICE_X58Y53.Y       Tif6y                 0.410   cpu/a<1>
+                                                       cpu/register_file/mux1_2_f7
+    SLICE_X51Y41.G1      net (fanout=11)       1.734   cpu/a<1>
+    SLICE_X51Y41.COUT    Topcyg                1.178   cpu/alu/alu_out_addsub0000<0>
+                                                       cpu/alu/Madd_alu_out_addsub0000_lut<1>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<1>
+    SLICE_X51Y42.CIN     net (fanout=1)        0.000   cpu/alu/Madd_alu_out_addsub0000_cy<1>
+    SLICE_X51Y42.COUT    Tbyp                  0.130   cpu/alu/alu_out_addsub0000<2>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<2>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<3>
+    SLICE_X51Y43.CIN     net (fanout=1)        0.000   cpu/alu/Madd_alu_out_addsub0000_cy<3>
+    SLICE_X51Y43.COUT    Tbyp                  0.130   cpu/alu/alu_out_addsub0000<4>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<4>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<5>
+    SLICE_X51Y44.CIN     net (fanout=1)        0.000   cpu/alu/Madd_alu_out_addsub0000_cy<5>
+    SLICE_X51Y44.Y       Tciny                 0.864   cpu/alu/alu_out_addsub0000<6>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<6>
+                                                       cpu/alu/Madd_alu_out_addsub0000_xor<7>
+    SLICE_X53Y39.G3      net (fanout=2)        0.667   cpu/alu/alu_out_addsub0000<7>
+    SLICE_X53Y39.F5      Tif5                  0.773   cpu/alu/Mmux_alu_out_7_f57
+                                                       cpu/alu/Mmux_alu_out_97
+                                                       cpu/alu/Mmux_alu_out_7_f5_6
+    SLICE_X53Y38.FXINB   net (fanout=1)        0.000   cpu/alu/Mmux_alu_out_7_f57
+    SLICE_X53Y38.Y       Tif6y                 0.291   cpu/alu/Mmux_alu_out_5_f67
+                                                       cpu/alu/Mmux_alu_out_5_f6_6
+    SLICE_X54Y24.F2      net (fanout=1)        0.928   cpu/alu/Mmux_alu_out_5_f67
+    SLICE_X54Y24.X       Tilo                  0.692   cpu/register_file/reg_file_10_7
+                                                       cpu/register_file/wdata<7>19
+    SLICE_X54Y25.BX      net (fanout=14)       2.006   cpu/register_file/wdata<7>
+    SLICE_X54Y25.CLK     Tdick                 0.343   cpu/register_file/reg_file_5_7
+                                                       cpu/register_file/reg_file_5_7
+    -------------------------------------------------  ---------------------------
+    Total                                     15.923ns (8.163ns logic, 7.760ns route)
+                                                       (51.3% logic, 48.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     4.043ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram (RAM)
+  Destination:          cpu/register_file/reg_file_5_7 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      15.923ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.034ns (0.228 - 0.262)
+  Source Clock:         CLK_50M_BUFGP rising at 0.000ns
+  Destination Clock:    CLK_50M_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram to cpu/register_file/reg_file_5_7
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB16_X1Y4.DOB1     Trcko_DOWB            2.427   cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram
+                                                       cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram
+    SLICE_X58Y52.BX      net (fanout=38)       2.425   cpu/raddr1<1>
+    SLICE_X58Y52.F5      Tbxf5                 0.640   cpu/register_file/mux1_4_f5
+                                                       cpu/register_file/mux1_4_f5
+    SLICE_X58Y52.FXINA   net (fanout=1)        0.000   cpu/register_file/mux1_4_f5
+    SLICE_X58Y52.FX      Tinafx                0.285   cpu/register_file/mux1_4_f5
+                                                       cpu/register_file/mux1_3_f6
+    SLICE_X58Y53.FXINA   net (fanout=1)        0.000   cpu/register_file/mux1_3_f6
+    SLICE_X58Y53.Y       Tif6y                 0.410   cpu/a<1>
+                                                       cpu/register_file/mux1_2_f7
+    SLICE_X51Y41.G1      net (fanout=11)       1.734   cpu/a<1>
+    SLICE_X51Y41.COUT    Topcyg                1.178   cpu/alu/alu_out_addsub0000<0>
+                                                       cpu/alu/Madd_alu_out_addsub0000_lut<1>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<1>
+    SLICE_X51Y42.CIN     net (fanout=1)        0.000   cpu/alu/Madd_alu_out_addsub0000_cy<1>
+    SLICE_X51Y42.COUT    Tbyp                  0.130   cpu/alu/alu_out_addsub0000<2>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<2>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<3>
+    SLICE_X51Y43.CIN     net (fanout=1)        0.000   cpu/alu/Madd_alu_out_addsub0000_cy<3>
+    SLICE_X51Y43.COUT    Tbyp                  0.130   cpu/alu/alu_out_addsub0000<4>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<4>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<5>
+    SLICE_X51Y44.CIN     net (fanout=1)        0.000   cpu/alu/Madd_alu_out_addsub0000_cy<5>
+    SLICE_X51Y44.Y       Tciny                 0.864   cpu/alu/alu_out_addsub0000<6>
+                                                       cpu/alu/Madd_alu_out_addsub0000_cy<6>
+                                                       cpu/alu/Madd_alu_out_addsub0000_xor<7>
+    SLICE_X53Y39.G3      net (fanout=2)        0.667   cpu/alu/alu_out_addsub0000<7>
+    SLICE_X53Y39.F5      Tif5                  0.773   cpu/alu/Mmux_alu_out_7_f57
+                                                       cpu/alu/Mmux_alu_out_97
+                                                       cpu/alu/Mmux_alu_out_7_f5_6
+    SLICE_X53Y38.FXINB   net (fanout=1)        0.000   cpu/alu/Mmux_alu_out_7_f57
+    SLICE_X53Y38.Y       Tif6y                 0.291   cpu/alu/Mmux_alu_out_5_f67
+                                                       cpu/alu/Mmux_alu_out_5_f6_6
+    SLICE_X54Y24.F2      net (fanout=1)        0.928   cpu/alu/Mmux_alu_out_5_f67
+    SLICE_X54Y24.X       Tilo                  0.692   cpu/register_file/reg_file_10_7
+                                                       cpu/register_file/wdata<7>19
+    SLICE_X54Y25.BX      net (fanout=14)       2.006   cpu/register_file/wdata<7>
+    SLICE_X54Y25.CLK     Tdick                 0.343   cpu/register_file/reg_file_5_7
+                                                       cpu/register_file/reg_file_5_7
+    -------------------------------------------------  ---------------------------
+    Total                                     15.923ns (8.163ns logic, 7.760ns route)
+                                                       (51.3% logic, 48.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     4.060ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram (RAM)
+  Destination:          cpu/register_file/reg_file_5_7 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      15.906ns (Levels of Logic = 10)
+  Clock Path Skew:      -0.034ns (0.228 - 0.262)
+  Source Clock:         CLK_50M_BUFGP rising at 0.000ns
+  Destination Clock:    CLK_50M_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram to cpu/register_file/reg_file_5_7
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB16_X1Y4.DOA17    Trcko_DOWA            2.498   cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram
+                                                       cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram
+    SLICE_X57Y58.BX      net (fanout=36)       2.977   cpu/raddr2<1>
+    SLICE_X57Y58.F5      Tbxf5                 0.605   cpu/register_file/mux8_5_f51
+                                                       cpu/register_file/mux8_5_f5_0
+    SLICE_X57Y58.FXINA   net (fanout=1)        0.000   cpu/register_file/mux8_5_f51
+    SLICE_X57Y58.FX      Tinafx                0.254   cpu/register_file/mux8_5_f51
+                                                       cpu/register_file/mux8_4_f6
+    SLICE_X56Y59.FXINB   net (fanout=1)        0.000   cpu/register_file/mux8_4_f6
+    SLICE_X56Y59.Y       Tif6y                 0.410   b<0>
+                                                       cpu/register_file/mux8_2_f7
+    SLICE_X53Y41.F2      net (fanout=8)        1.107   b<0>
+    SLICE_X53Y41.COUT    Topcyf                1.195   cpu/alu/_AUX_5<0>
+                                                       cpu/alu/Msub__AUX_5_lut<0>
+                                                       cpu/alu/Msub__AUX_5_cy<0>
+                                                       cpu/alu/Msub__AUX_5_cy<1>
+    SLICE_X53Y42.CIN     net (fanout=1)        0.000   cpu/alu/Msub__AUX_5_cy<1>
+    SLICE_X53Y42.COUT    Tbyp                  0.130   cpu/alu/_AUX_5<2>
+                                                       cpu/alu/Msub__AUX_5_cy<2>
+                                                       cpu/alu/Msub__AUX_5_cy<3>
+    SLICE_X53Y43.CIN     net (fanout=1)        0.000   cpu/alu/Msub__AUX_5_cy<3>
+    SLICE_X53Y43.COUT    Tbyp                  0.130   cpu/alu/_AUX_5<4>
+                                                       cpu/alu/Msub__AUX_5_cy<4>
+                                                       cpu/alu/Msub__AUX_5_cy<5>
+    SLICE_X53Y44.CIN     net (fanout=1)        0.000   cpu/alu/Msub__AUX_5_cy<5>
+    SLICE_X53Y44.Y       Tciny                 0.864   cpu/alu/_AUX_5<6>
+                                                       cpu/alu/Msub__AUX_5_cy<6>
+                                                       cpu/alu/Msub__AUX_5_xor<7>
+    SLICE_X53Y38.G1      net (fanout=1)        0.703   cpu/alu/_AUX_5<7>
+    SLICE_X53Y38.F5      Tif5                  0.773   cpu/alu/Mmux_alu_out_5_f67
+                                                       cpu/alu/Mmux_alu_out_821
+                                                       cpu/alu/Mmux_alu_out_6_f5_13
+    SLICE_X53Y38.FXINA   net (fanout=1)        0.000   cpu/alu/Mmux_alu_out_6_f514
+    SLICE_X53Y38.Y       Tif6y                 0.291   cpu/alu/Mmux_alu_out_5_f67
+                                                       cpu/alu/Mmux_alu_out_5_f6_6
+    SLICE_X54Y24.F2      net (fanout=1)        0.928   cpu/alu/Mmux_alu_out_5_f67
+    SLICE_X54Y24.X       Tilo                  0.692   cpu/register_file/reg_file_10_7
+                                                       cpu/register_file/wdata<7>19
+    SLICE_X54Y25.BX      net (fanout=14)       2.006   cpu/register_file/wdata<7>
+    SLICE_X54Y25.CLK     Tdick                 0.343   cpu/register_file/reg_file_5_7
+                                                       cpu/register_file/reg_file_5_7
+    -------------------------------------------------  ---------------------------
+    Total                                     15.906ns (8.185ns logic, 7.721ns route)
+                                                       (51.5% logic, 48.5% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: NET "CLK_50M_BUFGP/IBUFG" PERIOD = 20 ns HIGH 50%;
+--------------------------------------------------------------------------------
+
+Paths for end point vga/map_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s3a_noinit.ram/dpram.ram (RAMB16_X1Y5.ADDRA3), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.831ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               cpu/register_file/reg_file_14_2 (FF)
+  Destination:          vga/map_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s3a_noinit.ram/dpram.ram (RAM)
+  Requirement:          0.000ns
+  Data Path Delay:      0.844ns (Levels of Logic = 0)
+  Clock Path Skew:      0.013ns (0.262 - 0.249)
+  Source Clock:         CLK_50M_BUFGP rising at 20.000ns
+  Destination Clock:    CLK_50M_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: cpu/register_file/reg_file_14_2 to vga/map_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s3a_noinit.ram/dpram.ram
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X59Y57.YQ      Tcko                  0.464   cpu/register_file/reg_file_14_3
+                                                       cpu/register_file/reg_file_14_2
+    RAMB16_X1Y5.ADDRA3   net (fanout=6)        0.380   cpu/register_file/reg_file_14_2
+    RAMB16_X1Y5.CLKA     Trckc_ADDRA (-Th)     0.000   vga/map_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s3a_noinit.ram/dpram.ram
+                                                       vga/map_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s3a_noinit.ram/dpram.ram
+    -------------------------------------------------  ---------------------------
+    Total                                      0.844ns (0.464ns logic, 0.380ns route)
+                                                       (55.0% logic, 45.0% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point vga/map_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s3a_noinit.ram/dpram.ram (RAMB16_X1Y5.ADDRA4), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.858ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               cpu/register_file/reg_file_14_3 (FF)
+  Destination:          vga/map_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s3a_noinit.ram/dpram.ram (RAM)
+  Requirement:          0.000ns
+  Data Path Delay:      0.871ns (Levels of Logic = 0)
+  Clock Path Skew:      0.013ns (0.262 - 0.249)
+  Source Clock:         CLK_50M_BUFGP rising at 20.000ns
+  Destination Clock:    CLK_50M_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: cpu/register_file/reg_file_14_3 to vga/map_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s3a_noinit.ram/dpram.ram
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X59Y57.XQ      Tcko                  0.473   cpu/register_file/reg_file_14_3
+                                                       cpu/register_file/reg_file_14_3
+    RAMB16_X1Y5.ADDRA4   net (fanout=6)        0.398   cpu/register_file/reg_file_14_3
+    RAMB16_X1Y5.CLKA     Trckc_ADDRA (-Th)     0.000   vga/map_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s3a_noinit.ram/dpram.ram
+                                                       vga/map_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s3a_noinit.ram/dpram.ram
+    -------------------------------------------------  ---------------------------
+    Total                                      0.871ns (0.473ns logic, 0.398ns route)
+                                                       (54.3% logic, 45.7% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point vga/map_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s3a_noinit.ram/dpram.ram (RAMB16_X1Y5.ADDRA9), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.858ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               cpu/register_file/reg_file_13_0 (FF)
+  Destination:          vga/map_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s3a_noinit.ram/dpram.ram (RAM)
+  Requirement:          0.000ns
+  Data Path Delay:      0.881ns (Levels of Logic = 0)
+  Clock Path Skew:      0.023ns (0.262 - 0.239)
+  Source Clock:         CLK_50M_BUFGP rising at 20.000ns
+  Destination Clock:    CLK_50M_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: cpu/register_file/reg_file_13_0 to vga/map_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s3a_noinit.ram/dpram.ram
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X59Y59.YQ      Tcko                  0.464   cpu/register_file/reg_file_13_1
+                                                       cpu/register_file/reg_file_13_0
+    RAMB16_X1Y5.ADDRA9   net (fanout=6)        0.417   cpu/register_file/reg_file_13_0
+    RAMB16_X1Y5.CLKA     Trckc_ADDRA (-Th)     0.000   vga/map_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s3a_noinit.ram/dpram.ram
+                                                       vga/map_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s3a_noinit.ram/dpram.ram
+    -------------------------------------------------  ---------------------------
+    Total                                      0.881ns (0.464ns logic, 0.417ns route)
+                                                       (52.7% logic, 47.3% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: NET "CLK_50M_BUFGP/IBUFG" PERIOD = 20 ns HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 16.824ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 3.176ns (314.861MHz) (Trper_CLKA)
+  Physical resource: vga/map_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s3a_noinit.ram/dpram.ram/CLKA
+  Logical resource: vga/map_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s3a_noinit.ram/dpram.ram/CLKA
+  Location pin: RAMB16_X1Y6.CLKA
+  Clock network: CLK_50M_BUFGP
+--------------------------------------------------------------------------------
+Slack: 16.824ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 3.176ns (314.861MHz) (Trper_CLKA)
+  Physical resource: vga/map_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s3a_noinit.ram/dpram.ram/CLKA
+  Logical resource: vga/map_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s3a_noinit.ram/dpram.ram/CLKA
+  Location pin: RAMB16_X1Y5.CLKA
+  Clock network: CLK_50M_BUFGP
+--------------------------------------------------------------------------------
+Slack: 16.824ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 3.176ns (314.861MHz) (Trper_CLKA)
+  Physical resource: vga/map_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s3a_noinit.ram/dpram.ram/CLKA
+  Logical resource: vga/map_ram/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s3a_noinit.ram/dpram.ram/CLKA
+  Location pin: RAMB16_X1Y9.CLKA
+  Clock network: CLK_50M_BUFGP
+--------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock CLK_50M
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK_50M        |   15.973|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 216886 paths, 0 nets, and 1723 connections
+
+Design statistics:
+   Minimum period:  15.973ns{1}   (Maximum frequency:  62.606MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Wed Jun 21 23:09:41 2017 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 192 MB
+
+
+

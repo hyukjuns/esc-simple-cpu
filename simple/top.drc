@@ -1,0 +1,57 @@
+Release 14.7 Drc P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Wed Jun 21 23:09:44 2017
+
+drc -z top.ncd top.pcf
+
+WARNING:PhysDesignRules:812 - Dangling pin <DIA0> on
+   block:<vga/char_rom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/va
+   lid.cstr/ramloop[0].ram.r/s3a_init.ram/dpram.ram>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA1> on
+   block:<vga/char_rom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/va
+   lid.cstr/ramloop[0].ram.r/s3a_init.ram/dpram.ram>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA2> on
+   block:<vga/char_rom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/va
+   lid.cstr/ramloop[0].ram.r/s3a_init.ram/dpram.ram>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA3> on
+   block:<vga/char_rom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/va
+   lid.cstr/ramloop[0].ram.r/s3a_init.ram/dpram.ram>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA4> on
+   block:<vga/char_rom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/va
+   lid.cstr/ramloop[0].ram.r/s3a_init.ram/dpram.ram>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA5> on
+   block:<vga/char_rom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/va
+   lid.cstr/ramloop[0].ram.r/s3a_init.ram/dpram.ram>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA6> on
+   block:<vga/char_rom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/va
+   lid.cstr/ramloop[0].ram.r/s3a_init.ram/dpram.ram>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA7> on
+   block:<vga/char_rom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/va
+   lid.cstr/ramloop[0].ram.r/s3a_init.ram/dpram.ram>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA0> on
+   block:<cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+   .cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA1> on
+   block:<cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+   .cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA8> on
+   block:<cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+   .cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA9> on
+   block:<cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+   .cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA16> on
+   block:<cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+   .cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA17> on
+   block:<cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+   .cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA24> on
+   block:<cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+   .cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram>:<RAMB16BWE_RAMB16BWE>.
+WARNING:PhysDesignRules:812 - Dangling pin <DIA25> on
+   block:<cpu/myrom/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid
+   .cstr/ramloop[0].ram.r/s3a_init.ram/spram.ram>:<RAMB16BWE_RAMB16BWE>.
+DRC detected 0 errors and 16 warnings.  Please see the previously displayed
+individual error or warning messages for more details.
