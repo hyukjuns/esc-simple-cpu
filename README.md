@@ -154,6 +154,7 @@ MEMORY_INITIALIZATION_VECTOR=
 1110001001110000  	
 1100001000001111;  	
 ```
+</br>
 <br>
 [char_rom.coe](char_rom.coe)
 ```
@@ -176,3 +177,4 @@ MEMORY_INITIALIZATION_VECTOR=
 00, 7E, 40, 7E, 40, 40, 7E, 00, 	 
 00, 7E, 40, 7E, 40, 40, 40, 00;	
 ```
+</br>
